@@ -1,6 +1,6 @@
 # loading
 
-Loading Indicator Widget
+A flutter widget of loading progress Indicator. Easy to use, easy to extend
 
 
 ## Installation
@@ -22,8 +22,3 @@ flutter packages get
 
 ## Example
 
-
-
-## Thanks
-
-[AVLoadingIndicatorView](https://github.com/81813780/AVLoadingIndicatorView)
