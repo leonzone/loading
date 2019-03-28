@@ -1,4 +1,4 @@
-## Loading_demo
+## Loading
 
 A flutter widget of loading progress Indicator. Easy to use, easy to extend
 
