@@ -8,7 +8,7 @@ import 'package:loading/indicator/ball_scale_multiple_indicator.dart';
 import 'package:loading/indicator/line_scale_party_indicator.dart';
 import 'package:loading/indicator/ball_beat_indicator.dart';
 import 'package:loading/indicator/line_scale_pulse_out_indicator.dart';
-import 'package:loading/indicator/pacman_indicator.dart';
+import 'package:loading/indicator/ball_spin_fade_loader_indicator.dart';
 
 void main() => runApp(MyApp());
 
@@ -46,21 +46,15 @@ class ShowLoading extends StatelessWidget {
     );
   }
 }
-//LoadingIndicatorView
-//(
-//indicator: BallPulseIndicator
-//(
-//),)
-//,
 
 class LoadingList extends StatelessWidget {
   final indicatorList = [
     BallPulseIndicator(),
     BallBeatIndicator(),
     BallGridPulseIndicator(),
-//    PacmanIndicator(),
     BallScaleIndicator(),
     BallScaleMultipleIndicator(),
+    BallSpinFadeLoaderIndicator(),
     LineScaleIndicator(),
     LineScalePartyIndicator(),
     LineScalePulseOutIndicator(),
@@ -72,22 +66,27 @@ class LoadingList extends StatelessWidget {
       appBar: new AppBar(
         title: new Text("Loading View List"),
       ),
+
       body: Container(
         color: Colors.lightBlue,
-        child: GridView.count(
-          // Create a grid with 2 columns. If you change the scrollDirection to
-          // horizontal, this would produce 2 rows.
-          padding: EdgeInsets.all(16.0),
-          crossAxisSpacing: 36,
-          crossAxisCount: 2,
-          // Generate 100 Widgets that display their index in the List
-          children: List.generate(indicatorList.length, (index) {
-            return Center(
-              child: Loading(indicator: indicatorList[index]),
-            );
-          }),
+        child: Center(
+          child: Loading(indicator: BallPulseIndicator(), size: 100.0),
         ),
       ),
+//      body: Container(
+//        color: Colors.lightBlue,
+//        child: GridView.count(
+//          padding: EdgeInsets.all(16.0),
+//          crossAxisSpacing: 36,
+//          crossAxisCount: 3,
+//          // Generate 100 Widgets that display their index in the List
+//          children: List.generate(indicatorList.length, (index) {
+//            return Center(
+//              child: Loading(indicator: indicatorList[index]),
+//            );
+//          }),
+//        ),
+//      ),
     );
   }
 }

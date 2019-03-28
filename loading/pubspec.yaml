@@ -1,6 +1,6 @@
 name: loading
-description: loading view
-version: 0.0.2
+description: A flutter widget of loading progress Indicator. Easy to use, easy to extend
+version: 1.0.0
 
 author: ReiserXu <leonzone58@gmail.com>
 homepage: https://github.com/leonzone/loading
