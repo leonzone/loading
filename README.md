@@ -11,7 +11,7 @@ Add dependency to pubspec.yaml
 ```
 dependencies:
   ...
-  loading: ^1.0.0
+  loading: ^1.0.1
 ```
 Run in your terminal
 

@@ -2,7 +2,7 @@
 
 A flutter widget of loading progress Indicator. Easy to use, easy to extend
 
-![art](http://media.xindapei.cn/2019-03-28%2017.09.10.gif)
+![art](https://wx3.sinaimg.cn/mw690/7699d26bgy1g3nxfi6q1fg20h20zqn8k.gif)
 
 ## Installation
 
@@ -11,7 +11,7 @@ Add dependency to pubspec.yaml
 ```
 dependencies:
   ...
-  loading: ^1.0.0
+  loading: ^1.0.1
 ```
 Run in your terminal
 
