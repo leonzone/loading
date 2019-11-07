@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:loading/indicator.dart';
 import 'package:loading/indicator/ball_scale_indicator.dart';
@@ -5,8 +6,9 @@ import 'package:loading/indicator/ball_scale_indicator.dart';
 class Loading extends StatefulWidget {
   Indicator indicator;
   double size;
+  Color color;
 
-  Loading({this.indicator,  this.size=50.0}) {
+  Loading({this.indicator,  this.size = 50.0, this.color = Colors.white}) {
     if (indicator == null) {
       indicator = BallScaleIndicator();
     } else {
@@ -42,7 +44,7 @@ class LoadingState extends State<Loading> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return CustomPaint(
-      painter: _Painter(indicator),
+      painter: _Painter(indicator, widget.color),
       size: Size.square(size),
     );
   }
@@ -50,14 +52,16 @@ class LoadingState extends State<Loading> with TickerProviderStateMixin {
 
 class _Painter extends CustomPainter {
   Indicator indicator;
+  Color color;
+  Paint defaultPaint;
 
-  _Painter(this.indicator);
-
-  final defaultPaint = Paint()
-    ..strokeCap = StrokeCap.butt
-    ..style = PaintingStyle.fill
-    ..color = Color.fromARGB(255, 255, 255, 255)
-    ..isAntiAlias = true;
+  _Painter(this.indicator, this.color) {
+    defaultPaint = Paint()
+      ..strokeCap = StrokeCap.butt
+      ..style = PaintingStyle.fill
+      ..color = color
+      ..isAntiAlias = true;
+  }
 
   @override
   void paint(Canvas canvas, Size size) {
