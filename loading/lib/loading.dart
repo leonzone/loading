@@ -5,8 +5,9 @@ import 'package:loading/indicator/ball_scale_indicator.dart';
 class Loading extends StatefulWidget {
   Indicator indicator;
   double size;
+  Color color;
 
-  Loading({this.indicator,  this.size=50.0}) {
+  Loading({this.indicator,  this.size=50.0, this.color=Color.fromARGB(255, 255, 255, 255)}) {
     if (indicator == null) {
       indicator = BallScaleIndicator();
     } else {
@@ -16,15 +17,16 @@ class Loading extends StatefulWidget {
 
   @override
   State<StatefulWidget> createState() {
-    return LoadingState(indicator, size);
+    return LoadingState(indicator, size, color);
   }
 }
 
 class LoadingState extends State<Loading> with TickerProviderStateMixin {
   Indicator indicator;
   double size;
+  Color color;
 
-  LoadingState(this.indicator, this.size);
+  LoadingState(this.indicator, this.size, this.color);
 
   @override
   void initState() {
@@ -42,7 +44,7 @@ class LoadingState extends State<Loading> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return CustomPaint(
-      painter: _Painter(indicator),
+      painter: _Painter(indicator, color),
       size: Size.square(size),
     );
   }
@@ -50,13 +52,14 @@ class LoadingState extends State<Loading> with TickerProviderStateMixin {
 
 class _Painter extends CustomPainter {
   Indicator indicator;
+  Color color;
+  final Paint defaultPaint;
 
-  _Painter(this.indicator);
-
-  final defaultPaint = Paint()
+  _Painter(this.indicator, this.color)
+      : defaultPaint = Paint()
     ..strokeCap = StrokeCap.butt
     ..style = PaintingStyle.fill
-    ..color = Color.fromARGB(255, 255, 255, 255)
+    ..color = color
     ..isAntiAlias = true;
 
   @override

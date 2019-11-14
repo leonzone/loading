@@ -23,11 +23,30 @@ flutter packages get
 
 ## Example
 
+### Loading Type
+
+- BallBeatIndicator
+- BallGridPulseIndicator
+- BallPulseIndicator
+- BallScaleIndicator **[default]**
+- BallScaleMultipleIndicator
+- BallSpinFadeLoaderIndicator
+- LineScaleIndicator
+- LineScalePartyIndicator
+- LineScalePulseOutIndicator
+- PacmanIndicator
+
+### properties
+
+- indicator [default: BallScaleIndicator]
+- size [default: 50.0]
+- color [default: Color.fromARGB(255, 255, 255, 255)]
+
 ``` Dart
       body: Container(
         color: Colors.lightBlue,
         child: Center(
-          child: Loading(indicator: BallPulseIndicator(), size: 100.0),
+          child: Loading(indicator: BallPulseIndicator(), size: 100.0, color: Colors.red,),
         ),
       ),
 ```
