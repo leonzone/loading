@@ -37,10 +37,12 @@ class LineScalePulseOutIndicator extends Indicator {
 
   @override
   startAnims(List<AnimationController> controllers) {
-    var delays = [500,250,0,250,500];
+    var delays = [500, 250, 0, 250, 500];
     for (var i = 0; i < controllers.length; i++) {
       Future.delayed(Duration(milliseconds: delays[i]), () {
-        controllers[i].repeat(reverse: true);
+        if (controllers[i].status != AnimationStatus.dismissed) {
+          controllers[i].repeat(reverse: true);
+        }
       });
     }
   }

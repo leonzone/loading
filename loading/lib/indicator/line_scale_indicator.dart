@@ -40,7 +40,9 @@ class LineScaleIndicator extends Indicator {
     var delays = [100, 200, 300, 400, 500];
     for (var i = 0; i < controllers.length; i++) {
       Future.delayed(Duration(milliseconds: delays[i]), () {
-        controllers[i].repeat(reverse: true);
+        if (controllers[i].status != AnimationStatus.dismissed) {
+          controllers[i].repeat(reverse: true);
+        }
       });
     }
   }

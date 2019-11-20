@@ -52,7 +52,9 @@ class BallBeatIndicator extends Indicator {
   startAnims(List<AnimationController> controllers) {
     for (var i = 0; i < controllers.length; i++) {
       Future.delayed(Duration(milliseconds: delays[i]), () {
-        startAnim(controllers[i]);
+        if (controllers[i].status != AnimationStatus.dismissed) {
+          startAnim(controllers[i]);
+        }
       });
     }
   }
