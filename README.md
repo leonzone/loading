@@ -27,7 +27,7 @@ flutter packages get
       body: Container(
         color: Colors.lightBlue,
         child: Center(
-          child: Loading(indicator: BallPulseIndicator(), size: 100.0),
+          child: Loading(indicator: BallPulseIndicator(), size: 100.0, color: Colors.pink,),
         ),
       ),
 ```
