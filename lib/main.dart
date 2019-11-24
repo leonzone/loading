@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:loading/indicator.dart';
 import 'package:loading/loading.dart';
 import 'package:loading/indicator/ball_scale_indicator.dart';
 import 'package:loading/indicator/ball_pulse_indicator.dart';
@@ -34,7 +35,10 @@ class ShowLoading extends StatelessWidget {
         title: Text('Loading View'),
       ),
       body: Center(
-          child: RaisedButton(
+          child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          RaisedButton(
               child: const Text('Show Time'),
               onPressed: () {
                 Navigator.push(
@@ -42,23 +46,40 @@ class ShowLoading extends StatelessWidget {
                   new MaterialPageRoute(
                       builder: (context) => new LoadingList()),
                 );
-              })),
+              }),
+        ],
+      )),
     );
   }
 }
 
 class LoadingList extends StatelessWidget {
-  final indicatorList = [
-    BallPulseIndicator(),
-    BallBeatIndicator(),
-    BallGridPulseIndicator(),
-    BallScaleIndicator(),
-    BallScaleMultipleIndicator(),
-    BallSpinFadeLoaderIndicator(),
-    LineScaleIndicator(),
-    LineScalePartyIndicator(),
-    LineScalePulseOutIndicator(),
-  ];
+  final Map<String, Indicator> indicatorList = {
+    'BallPulseIndicator': BallPulseIndicator(),
+    'BallBeatIndicator': BallBeatIndicator(),
+    'BallGridPulseIndicator': BallGridPulseIndicator(),
+    'BallScaleIndicator': BallScaleIndicator(),
+    'BallScaleMultipleIndicator': BallScaleMultipleIndicator(),
+    'BallSpinFadeLoaderIndicator': BallSpinFadeLoaderIndicator(),
+    'LineScaleIndicator': LineScaleIndicator(),
+    'LineScalePartyIndicator': LineScalePartyIndicator(),
+    'LineScalePulseOutIndicator': LineScalePulseOutIndicator(),
+  };
+
+  Widget _buildItem(BuildContext context, int index) {
+    final indicatorName = indicatorList.keys.elementAt(index);
+    return ListTile(
+      leading: Loading(
+        indicator: indicatorList[indicatorName],
+        color: Colors.lightBlue,
+      ),
+      title: Text(
+        indicatorName,
+        style: TextStyle(fontWeight: FontWeight.bold),
+      ),
+      contentPadding: EdgeInsets.all(10),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -66,16 +87,31 @@ class LoadingList extends StatelessWidget {
       appBar: new AppBar(
         title: new Text("Loading View List"),
       ),
-
       body: Container(
-        color: Colors.lightBlue,
-        child: Center(
-          child: Loading(indicator: BallPulseIndicator(), size: 100.0, color: Colors.pink,),
-        ),
-      ),
-//      body: Container(
-//        color: Colors.lightBlue,
-//        child: GridView.count(
+          color: Colors.white,
+          child: Column(
+            children: <Widget>[
+              TextField(
+                decoration: InputDecoration(
+                  prefixIcon: Padding(
+                    padding: const EdgeInsets.all(11.0),
+                    child: Loading(
+                        indicator: BallSpinFadeLoaderIndicator(),
+                        size: 25.0,
+                        color: Colors.lightBlue),
+                  ),
+                  hintText: 'Input sample',
+                ),
+              ),
+              ListView.builder(
+                shrinkWrap: true,
+                itemBuilder: _buildItem,
+                itemCount: indicatorList.length,
+              ),
+            ],
+          )
+
+//        GridView.count(
 //          padding: EdgeInsets.all(16.0),
 //          crossAxisSpacing: 36,
 //          crossAxisCount: 3,
@@ -86,7 +122,7 @@ class LoadingList extends StatelessWidget {
 //            );
 //          }),
 //        ),
-//      ),
+          ),
     );
   }
 }
