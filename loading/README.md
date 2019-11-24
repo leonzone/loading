@@ -10,7 +10,7 @@ Add dependency to pubspec.yaml
 ```
 dependencies:
   ...
-  loading: ^1.0.1
+  loading: ^1.0.2
 ```
 Run in your terminal
 
@@ -26,7 +26,7 @@ flutter packages get
       body: Container(
         color: Colors.lightBlue,
         child: Center(
-          child: Loading(indicator: BallPulseIndicator(), size: 100.0),
+          child: Loading(indicator: BallPulseIndicator(), size: 100.0,color: Colors.pink),
         ),
       ),
 ```
