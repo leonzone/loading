@@ -2,7 +2,6 @@
 
 A flutter widget of loading progress Indicator. Easy to use, easy to extend
 
-![art](https://wx3.sinaimg.cn/mw690/7699d26bgy1g3nxfi6q1fg20h20zqn8k.gif)
 
 ## Installation
 
