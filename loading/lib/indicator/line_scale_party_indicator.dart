@@ -42,7 +42,7 @@ class LineScalePartyIndicator extends Indicator {
     var delays = [770, 290, 280, 740];
     for (var i = 0; i < controllers.length; i++) {
       Future.delayed(Duration(milliseconds: delays[i]), () {
-        controllers[i].repeat(reverse: true);
+        if (context.mounted) controllers[i].repeat(reverse: true);
       });
     }
   }

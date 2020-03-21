@@ -52,7 +52,7 @@ class BallPulseIndicator extends Indicator {
   startAnims(List<AnimationController> controllers) async {
     for (var i = 0; i < controllers.length; i++) {
       await Future.delayed(Duration(milliseconds: 120), () {
-        startAnim(controllers[i]);
+        if (context.mounted) startAnim(controllers[i]);
       });
     }
   }
