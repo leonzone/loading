@@ -6,7 +6,7 @@ class BallGridPulseIndicator extends Indicator {
   var alphaInts = [255, 255, 255, 255, 255, 255, 255, 255, 255];
 
   @override
-  paint(Canvas canvas, Paint paint, Size size) {
+  paint(Canvas canvas, Paint? paint, Size size) {
     var circleSpacing = 4;
     var width = size.width;
     var radius = (width - circleSpacing * 4) / 6;
@@ -18,7 +18,7 @@ class BallGridPulseIndicator extends Indicator {
         var translateX = x + (radius * 2) * j + circleSpacing * j;
         var translateY = y + (radius * 2) * i + circleSpacing * i;
         canvas.translate(translateX, translateY);
-        paint.color = paint.color.withAlpha(alphaInts[3 * i + j]);
+        paint!.color = paint.color.withAlpha(alphaInts[3 * i + j]);
         canvas.drawCircle(
             Offset(0, 0), radius * scaleDoubles[3 * i + j], paint);
         canvas.restore();
@@ -30,7 +30,7 @@ class BallGridPulseIndicator extends Indicator {
   List<AnimationController> animation() {
     var durations = [720, 1020, 1280, 1420, 1450, 1180, 870, 1450, 1060];
 
-    var controllers = List<AnimationController>();
+    List<AnimationController> controllers = [];
     for (int i = 0; i < 9; i++) {
       var sizeController = new AnimationController(
           duration: Duration(milliseconds: durations[i]), vsync: context);

@@ -7,7 +7,7 @@ class BallBeatIndicator extends Indicator {
   var delays = [350, 0, 350];
 
   @override
-  paint(Canvas canvas, Paint paint, Size size) {
+  paint(Canvas canvas, Paint? paint, Size size) {
     var circleSpacing = 4;
     var width = size.width;
     var height = size.height;
@@ -19,14 +19,14 @@ class BallBeatIndicator extends Indicator {
       var translateX = x + (radius * 2) * i + circleSpacing * i;
       canvas.translate(translateX, y);
       canvas.scale(scaleDoubles[i], scaleDoubles[i]);
-      canvas.drawCircle(Offset(0, 0), radius, paint);
+      canvas.drawCircle(Offset(0, 0), radius, paint!);
       canvas.restore();
     }
   }
 
   @override
   List<AnimationController> animation() {
-    var controllers = List<AnimationController>();
+    List<AnimationController> controllers = [];
 
     for (var i = 0; i < 3; i++) {
       AnimationController sizeController = new AnimationController(

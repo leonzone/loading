@@ -7,12 +7,12 @@ class BallScaleMultipleIndicator extends Indicator {
   var delays = [0, 200, 200];
 
   @override
-  paint(Canvas canvas, Paint paint, Size size) {
+  paint(Canvas canvas, Paint? paint, Size size) {
     var circleSpacing = 4;
     var width = size.width;
     var height = size.height;
     for (int i = 0; i < 3; i++) {
-      paint.color = paint.color.withAlpha(alphaInts[i]);
+      paint!.color = paint.color.withAlpha(alphaInts[i]);
       canvas.drawCircle(Offset(width / 2, height / 2),
           (width / 2 - circleSpacing) * scaleDoubles[i], paint);
     }
@@ -20,7 +20,7 @@ class BallScaleMultipleIndicator extends Indicator {
 
   @override
   List<AnimationController> animation() {
-    var controllers = List<AnimationController>();
+    List<AnimationController> controllers = [];
     for (int i = 0; i < 3; i++) {
       var sizeController = new AnimationController(
           duration: const Duration(milliseconds: 1000), vsync: context);

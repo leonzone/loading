@@ -5,7 +5,7 @@ class LineScaleIndicator extends Indicator {
   var scaleYDoubles = [1.0, 1.0, 1.0, 1.0, 1.0];
 
   @override
-  paint(Canvas canvas, Paint paint, Size size) {
+  paint(Canvas canvas, Paint? paint, Size size) {
     var translateX = size.width / 11;
     var translateY = size.height / 2;
     for (int i = 0; i < 5; i++) {
@@ -14,14 +14,14 @@ class LineScaleIndicator extends Indicator {
       canvas.scale(1.0, scaleYDoubles[i]);
       var rectF = RRect.fromLTRBR(-translateX / 2, -size.height / 2.5,
           translateX / 2, size.height / 2.5, Radius.circular(5));
-      canvas.drawRRect(rectF, paint);
+      canvas.drawRRect(rectF, paint!);
       canvas.restore();
     }
   }
 
   @override
   List<AnimationController> animation() {
-    var controllers = List<AnimationController>();
+    List<AnimationController> controllers = [];
     for (int i = 0; i < 5; i++) {
       var sizeController = new AnimationController(
           duration: Duration(milliseconds: 500), vsync: context);
