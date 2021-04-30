@@ -8,7 +8,7 @@ class BallSpinFadeLoaderIndicator extends Indicator {
   var alphas = [255, 255, 255, 255, 255, 255, 255, 255];
 
   @override
-  paint(Canvas canvas, Paint paint, Size size) {
+  paint(Canvas canvas, Paint? paint, Size size) {
     var radius = size.width / 10;
     for (int i = 0; i < 8; i++) {
       canvas.save();
@@ -16,7 +16,7 @@ class BallSpinFadeLoaderIndicator extends Indicator {
           size.width, size.height, size.width / 2 - radius, i * (pi / 4));
       canvas.translate(point.dx, point.dy);
       canvas.scale(scaleDoubles[i], scaleDoubles[i]);
-      paint.color = paint.color.withAlpha(alphas[i]);
+      paint!.color = paint.color.withAlpha(alphas[i]);
       canvas.drawCircle(Offset(0, 0), radius, paint);
       canvas.restore();
     }
@@ -24,7 +24,7 @@ class BallSpinFadeLoaderIndicator extends Indicator {
 
   @override
   List<AnimationController> animation() {
-    var controllers = List<AnimationController>();
+    List<AnimationController> controllers = [];
     for (int i = 0; i < 8; i++) {
       var controller = new AnimationController(
           duration: Duration(milliseconds: 500), vsync: context);

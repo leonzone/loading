@@ -6,7 +6,7 @@ class LineScalePartyIndicator extends Indicator {
   var durations = [630, 215, 505, 365];
 
   @override
-  paint(Canvas canvas, Paint paint, Size size) {
+  paint(Canvas canvas, Paint? paint, Size size) {
     var translateX = size.width / 9;
     var translateY = size.height / 2;
 
@@ -16,14 +16,14 @@ class LineScalePartyIndicator extends Indicator {
       canvas.scale(scaleDoubles[i], scaleDoubles[i]);
       var rectF = RRect.fromLTRBR(-translateX / 2, -size.height / 2.5,
           translateX / 2, size.height / 2.5, Radius.circular(5));
-      canvas.drawRRect(rectF, paint);
+      canvas.drawRRect(rectF, paint!);
       canvas.restore();
     }
   }
 
   @override
   List<AnimationController> animation() {
-    var controllers = List<AnimationController>();
+    List<AnimationController> controllers = [];
     for (int i = 0; i < 4; i++) {
       var sizeController = new AnimationController(
           duration: Duration(milliseconds: durations[i]), vsync: context);

@@ -6,18 +6,18 @@ class BallScaleIndicator extends Indicator {
   double mScale = 0;
 
   @override
-  paint(Canvas canvas, Paint paint, Size size) {
+  paint(Canvas canvas, Paint? paint, Size size) {
     var circleSpacing = 4;
     var width = size.width;
     var height = size.height;
-    paint.color = paint.color.withAlpha(mAlpha);
+    paint!.color = paint.color.withAlpha(mAlpha);
     canvas.drawCircle(Offset(width / 2, height / 2),
         (width / 2 - circleSpacing) * mScale, paint);
   }
 
   @override
   List<AnimationController> animation() {
-    var controllers = List<AnimationController>();
+    List<AnimationController> controllers = [];
     AnimationController alphaController = new AnimationController(
         duration: const Duration(milliseconds: 1000), vsync: context);
     Animation<int> alpha =

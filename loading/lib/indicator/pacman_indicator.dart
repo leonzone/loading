@@ -8,7 +8,7 @@ class PacmanIndicator extends Indicator {
   var degrees2 = 0.0;
 
   @override
-  paint(Canvas canvas, Paint paint, Size size) {
+  paint(Canvas canvas, Paint? paint, Size size) {
     var x = size.width / 2;
     var y = size.height / 2;
 
@@ -16,7 +16,7 @@ class PacmanIndicator extends Indicator {
 
     canvas.translate(x, y);
     canvas.rotate(degrees1);
-    paint.color = paint.color.withAlpha(255);
+    paint!.color = paint.color.withAlpha(255);
     Rect rectF1 = Rect.fromLTRB(-x / 1.7, -y / 1.7, x / 1.7, y / 1.7);
     canvas.drawArc(rectF1, 0, 270, false, paint);
 
@@ -38,7 +38,7 @@ class PacmanIndicator extends Indicator {
 
   @override
   List<AnimationController> animation() {
-    var controllers = List<AnimationController>();
+    List<AnimationController> controllers = [];
 
     var controller = new AnimationController(
         duration: Duration(milliseconds: 325), vsync: context);
@@ -49,7 +49,7 @@ class PacmanIndicator extends Indicator {
     var rotateTween2 = new Tween(begin: 0.0, end: -45.0).animate(controller);
 
     controller.addListener(() {
-      translateX = translateTween.value;
+      translateX = translateTween.value as double;
       alpha = alphaTween.value;
       degrees1 = rotateTween1.value;
       degrees2 = rotateTween2.value;
