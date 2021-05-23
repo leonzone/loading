@@ -17,11 +17,12 @@ class ShowLoading extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-        appBar: AppBar(
-          title: Text('Loading View'),
-        ),
-        body: Center(
-          child: Loading(indicator: BallPulseIndicator(), size: 100.0),
-        ));
+      appBar: AppBar(
+        title: Text('Loading View'),
+      ),
+      body: Center(
+        child: Loading(indicator: BallPulseIndicator(), size: 100.0),
+      ),
+    );
   }
 }

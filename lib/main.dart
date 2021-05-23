@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:loading/loading.dart';
-import 'package:loading/indicator/ball_scale_indicator.dart';
-import 'package:loading/indicator/ball_pulse_indicator.dart';
-import 'package:loading/indicator/ball_grid_pulse_indicator.dart';
-import 'package:loading/indicator/line_scale_indicator.dart';
-import 'package:loading/indicator/ball_scale_multiple_indicator.dart';
-import 'package:loading/indicator/line_scale_party_indicator.dart';
 import 'package:loading/indicator/ball_beat_indicator.dart';
-import 'package:loading/indicator/line_scale_pulse_out_indicator.dart';
+import 'package:loading/indicator/ball_grid_pulse_indicator.dart';
+import 'package:loading/indicator/ball_pulse_indicator.dart';
+import 'package:loading/indicator/ball_scale_indicator.dart';
+import 'package:loading/indicator/ball_scale_multiple_indicator.dart';
 import 'package:loading/indicator/ball_spin_fade_loader_indicator.dart';
+import 'package:loading/indicator/line_scale_indicator.dart';
+import 'package:loading/indicator/line_scale_party_indicator.dart';
+import 'package:loading/indicator/line_scale_pulse_out_indicator.dart';
+import 'package:loading/loading.dart';
 
 void main() => runApp(MyApp());
 
@@ -34,7 +34,7 @@ class ShowLoading extends StatelessWidget {
         title: Text('Loading View'),
       ),
       body: Center(
-          child: RaisedButton(
+          child: ElevatedButton(
               child: const Text('Show Time'),
               onPressed: () {
                 Navigator.push(
@@ -70,7 +70,11 @@ class LoadingList extends StatelessWidget {
       body: Container(
         color: Colors.lightBlue,
         child: Center(
-          child: Loading(indicator: BallPulseIndicator(), size: 100.0, color: Colors.pink,),
+          child: Loading(
+            indicator: BallPulseIndicator(),
+            size: 100.0,
+            color: Colors.pink,
+          ),
         ),
       ),
 //      body: Container(
