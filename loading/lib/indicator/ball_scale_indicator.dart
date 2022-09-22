@@ -17,7 +17,7 @@ class BallScaleIndicator extends Indicator {
 
   @override
   List<AnimationController> animation() {
-    var controllers = List<AnimationController>();
+    var controllers = <AnimationController>[];
     AnimationController alphaController = new AnimationController(
         duration: const Duration(milliseconds: 1000), vsync: context);
     Animation<int> alpha =

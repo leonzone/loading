@@ -21,7 +21,7 @@ class LineScaleIndicator extends Indicator {
 
   @override
   List<AnimationController> animation() {
-    var controllers = List<AnimationController>();
+    var controllers = <AnimationController>[];
     for (int i = 0; i < 5; i++) {
       var sizeController = new AnimationController(
           duration: Duration(milliseconds: 500), vsync: context);

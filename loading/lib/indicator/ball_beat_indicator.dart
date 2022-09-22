@@ -26,7 +26,7 @@ class BallBeatIndicator extends Indicator {
 
   @override
   List<AnimationController> animation() {
-    var controllers = List<AnimationController>();
+    var controllers = <AnimationController>[];
 
     for (var i = 0; i < 3; i++) {
       AnimationController sizeController = new AnimationController(

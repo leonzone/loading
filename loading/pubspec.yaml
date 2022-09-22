@@ -1,12 +1,11 @@
 name: loading
 description: A flutter widget of loading progress Indicator. Easy to use, easy to extend
-version: 1.0.2
+version: 2.0.0
 
-author: ReiserXu <leonzone58@gmail.com>
 homepage: https://github.com/leonzone/loading
 
 environment:
-  sdk: ">=2.1.0 <3.0.0"
+  sdk: ">=2.18.0 <3.0.0"
 
 dependencies:
   flutter:

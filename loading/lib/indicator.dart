@@ -2,8 +2,8 @@ import 'package:flutter/widgets.dart';
 import 'package:loading/loading.dart';
 
 abstract class Indicator {
-  LoadingState context;
-  List<AnimationController> animationControllers;
+  late LoadingState context;
+  List<AnimationController>? animationControllers;
 
   paint(Canvas canvas, Paint paint, Size size);
 
@@ -16,14 +16,14 @@ abstract class Indicator {
   void start() {
     animationControllers = animation();
     if (animationControllers != null) {
-      startAnims(animationControllers);
+      startAnims(animationControllers!);
     }
   }
 
   void dispose() {
     if (animationControllers != null) {
-      for (var i = 0; i < animationControllers.length; i++) {
-        animationControllers[i].dispose();
+      for (var i = 0; i < animationControllers!.length; i++) {
+        animationControllers![i].dispose();
       }
     }
   }

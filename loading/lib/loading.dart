@@ -4,11 +4,11 @@ import 'package:loading/indicator.dart';
 import 'package:loading/indicator/ball_scale_indicator.dart';
 
 class Loading extends StatefulWidget {
-  Indicator indicator;
+  Indicator? indicator;
   double size;
   Color color;
 
-  Loading({this.indicator,  this.size = 50.0, this.color = Colors.white}) {
+  Loading({this.indicator, this.size = 50.0, this.color = Colors.white}) {
     if (indicator == null) {
       indicator = BallScaleIndicator();
     } else {
@@ -18,7 +18,7 @@ class Loading extends StatefulWidget {
 
   @override
   State<StatefulWidget> createState() {
-    return LoadingState(indicator, size);
+    return LoadingState(indicator!, size);
   }
 }
 
@@ -51,9 +51,9 @@ class LoadingState extends State<Loading> with TickerProviderStateMixin {
 }
 
 class _Painter extends CustomPainter {
-  Indicator indicator;
+  Indicator? indicator;
   Color color;
-  Paint defaultPaint;
+  late Paint defaultPaint;
 
   _Painter(this.indicator, this.color) {
     defaultPaint = Paint()
@@ -65,7 +65,7 @@ class _Painter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    indicator.paint(canvas, defaultPaint, size);
+    indicator!.paint(canvas, defaultPaint, size);
   }
 
   @override
