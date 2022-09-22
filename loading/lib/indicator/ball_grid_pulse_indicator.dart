@@ -30,7 +30,7 @@ class BallGridPulseIndicator extends Indicator {
   List<AnimationController> animation() {
     var durations = [720, 1020, 1280, 1420, 1450, 1180, 870, 1450, 1060];
 
-    var controllers = List<AnimationController>();
+    var controllers = <AnimationController>[];
     for (int i = 0; i < 9; i++) {
       var sizeController = new AnimationController(
           duration: Duration(milliseconds: durations[i]), vsync: context);

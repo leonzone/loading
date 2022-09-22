@@ -38,7 +38,7 @@ class PacmanIndicator extends Indicator {
 
   @override
   List<AnimationController> animation() {
-    var controllers = List<AnimationController>();
+    var controllers = <AnimationController>[];
 
     var controller = new AnimationController(
         duration: Duration(milliseconds: 325), vsync: context);
@@ -49,7 +49,7 @@ class PacmanIndicator extends Indicator {
     var rotateTween2 = new Tween(begin: 0.0, end: -45.0).animate(controller);
 
     controller.addListener(() {
-      translateX = translateTween.value;
+      translateX = translateTween.value.toDouble();
       alpha = alphaTween.value;
       degrees1 = rotateTween1.value;
       degrees2 = rotateTween2.value;

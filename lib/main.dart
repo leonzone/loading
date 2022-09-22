@@ -34,7 +34,7 @@ class ShowLoading extends StatelessWidget {
         title: Text('Loading View'),
       ),
       body: Center(
-          child: RaisedButton(
+          child: ElevatedButton(
               child: const Text('Show Time'),
               onPressed: () {
                 Navigator.push(
@@ -70,7 +70,11 @@ class LoadingList extends StatelessWidget {
       body: Container(
         color: Colors.lightBlue,
         child: Center(
-          child: Loading(indicator: BallPulseIndicator(), size: 100.0, color: Colors.pink,),
+          child: Loading(
+            indicator: BallPulseIndicator(),
+            size: 100.0,
+            color: Colors.pink,
+          ),
         ),
       ),
 //      body: Container(

@@ -21,7 +21,7 @@ class LineScalePulseOutIndicator extends Indicator {
 
   @override
   List<AnimationController> animation() {
-    var controllers = List<AnimationController>();
+    var controllers = <AnimationController>[];
     for (int i = 0; i < 5; i++) {
       var sizeController = new AnimationController(
           duration: Duration(milliseconds: 500), vsync: context);
@@ -37,7 +37,7 @@ class LineScalePulseOutIndicator extends Indicator {
 
   @override
   startAnims(List<AnimationController> controllers) {
-    var delays = [500,250,0,250,500];
+    var delays = [500, 250, 0, 250, 500];
     for (var i = 0; i < controllers.length; i++) {
       Future.delayed(Duration(milliseconds: delays[i]), () {
         if (context.mounted) controllers[i].repeat(reverse: true);

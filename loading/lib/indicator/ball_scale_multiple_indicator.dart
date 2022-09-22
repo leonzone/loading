@@ -20,7 +20,7 @@ class BallScaleMultipleIndicator extends Indicator {
 
   @override
   List<AnimationController> animation() {
-    var controllers = List<AnimationController>();
+    var controllers = <AnimationController>[];
     for (int i = 0; i < 3; i++) {
       var sizeController = new AnimationController(
           duration: const Duration(milliseconds: 1000), vsync: context);
